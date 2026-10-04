@@ -1,0 +1,450 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-text-primary font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background;
+  }
+
+  .btn-primary {
+    @apply bg-accent text-white hover:bg-accent-secondary;
+  }
+
+  .btn-secondary {
+    @apply bg-surface border border-border text-text-primary hover:bg-surface-secondary;
+  }
+
+  .btn-ghost {
+    @apply hover:bg-surface hover:text-text-primary;
+  }
+
+  .btn-destructive {
+    @apply bg-accent-error text-white hover:bg-accent-error/90;
+  }
+
+  .btn-sm {
+    @apply h-9 px-3 rounded-md;
+  }
+
+  .btn-md {
+    @apply h-10 py-2 px-4;
+  }
+
+  .btn-lg {
+    @apply h-11 px-8 rounded-md;
+  }
+
+  .input {
+    @apply flex h-10 w-full rounded-md border border-border bg-surface px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .card {
+    @apply rounded-lg border border-border bg-surface text-text-primary shadow-sm;
+  }
+
+  .card-header {
+    @apply flex flex-col space-y-1.5 p-6;
+  }
+
+  .card-title {
+    @apply text-2xl font-semibold leading-none tracking-tight;
+  }
+
+  .card-description {
+    @apply text-sm text-text-secondary;
+  }
+
+  .card-content {
+    @apply p-6 pt-0;
+  }
+
+  .card-footer {
+    @apply flex items-center p-6 pt-0;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full border border-border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2;
+  }
+
+  .badge-primary {
+    @apply border-transparent bg-accent text-white hover:bg-accent/80;
+  }
+
+  .badge-secondary {
+    @apply border-transparent bg-surface-secondary text-text-primary hover:bg-surface-tertiary;
+  }
+
+  .badge-success {
+    @apply border-transparent bg-accent-success text-white;
+  }
+
+  .badge-warning {
+    @apply border-transparent bg-accent-warning text-white;
+  }
+
+  .badge-error {
+    @apply border-transparent bg-accent-error text-white;
+  }
+
+  .table {
+    @apply w-full caption-bottom text-sm;
+  }
+
+  .table-header {
+    @apply border-b border-border bg-surface-secondary;
+  }
+
+  .table-header-cell {
+    @apply h-12 px-4 text-left align-middle font-medium text-text-secondary;
+  }
+
+  .table-body {
+    @apply divide-y divide-border;
+  }
+
+  .table-row {
+    @apply border-b border-border transition-colors hover:bg-surface-secondary;
+  }
+
+  .table-cell {
+    @apply p-4 align-middle;
+  }
+
+  .sidebar {
+    @apply fixed left-0 top-0 z-40 h-screen w-64 -translate-x-full transform border-r border-border bg-surface transition-transform duration-300 ease-in-out;
+  }
+
+  .sidebar-open {
+    @apply translate-x-0;
+  }
+
+  .sidebar-overlay {
+    @apply fixed inset-0 z-30 bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out;
+  }
+
+  .main-content {
+    @apply ml-0 transition-all duration-300 ease-in-out;
+  }
+
+  .main-content-sidebar-open {
+    @apply ml-64;
+  }
+
+  .nav-link {
+    @apply flex items-center px-4 py-2 text-text-secondary transition-colors hover:bg-surface-secondary hover:text-text-primary rounded-md;
+  }
+
+  .nav-link-active {
+    @apply bg-accent text-white hover:bg-accent-secondary;
+  }
+
+  .status-present {
+    @apply bg-accent-success text-white;
+  }
+
+  .status-absent {
+    @apply bg-accent-error text-white;
+  }
+
+  .status-late {
+    @apply bg-accent-warning text-white;
+  }
+
+  .status-excused {
+    @apply bg-accent-secondary text-white;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Custom react-big-calendar dark, rounded, modern styles */
+.rbc-calendar {
+  @apply bg-surface rounded-2xl shadow-lg border border-border p-2;
+}
+.rbc-toolbar {
+  @apply bg-surface-secondary rounded-xl mb-4 px-4 py-2 flex flex-col md:flex-row md:items-center md:justify-between gap-2 border border-border;
+}
+.rbc-toolbar-label {
+  @apply text-xl font-bold text-text-primary;
+}
+.rbc-btn-group button {
+  @apply bg-surface border border-border text-text-secondary hover:bg-surface-secondary hover:text-accent rounded-md px-3 py-1 mx-1 transition-colors duration-150;
+}
+.rbc-btn-group button.rbc-active {
+  @apply bg-accent text-white;
+}
+.rbc-month-view,
+.rbc-time-view,
+.rbc-agenda-view {
+  @apply bg-surface rounded-xl;
+}
+.rbc-header {
+  @apply bg-surface-secondary text-text-secondary font-semibold border-b border-border py-2 px-1 text-center rounded-t-lg;
+}
+.rbc-row-content,
+.rbc-date-cell,
+.rbc-day-bg {
+  @apply rounded-lg;
+}
+.rbc-off-range-bg,
+.rbc-off-range,
+.rbc-day-bg,
+.rbc-date-cell,
+.rbc-header,
+.rbc-month-row,
+.rbc-row-segment,
+.rbc-row-content {
+  @apply bg-surface-tertiary !important;
+}
+.rbc-date-cell {
+  @apply text-text-secondary;
+}
+.rbc-header {
+  @apply bg-surface-secondary text-text-secondary;
+}
+.rbc-today {
+  @apply bg-accent/20;
+}
+.rbc-event {
+  @apply rounded-lg shadow-md border-none px-2 py-1 text-xs font-semibold flex items-center gap-1;
+}
+.rbc-event-content {
+  @apply flex items-center gap-1;
+}
+.rbc-selected {
+  @apply ring-2 ring-accent;
+}
+.rbc-show-more {
+  @apply text-accent hover:underline;
+}
+.rbc-agenda-table {
+  @apply bg-surface rounded-xl;
+}
+.rbc-agenda-table th,
+.rbc-agenda-table td {
+  @apply border border-border px-3 py-2;
+}
+.rbc-agenda-date-cell {
+  @apply text-text-secondary;
+}
+.rbc-agenda-event-cell {
+  @apply text-text-primary;
+}
+.rbc-time-header {
+  @apply bg-surface-secondary rounded-t-xl;
+}
+.rbc-time-content {
+  @apply rounded-b-xl;
+}
+.rbc-row-segment {
+  @apply rounded-lg;
+}
+.rbc-time-view,
+.rbc-time-content,
+.rbc-timeslot-group,
+.rbc-time-slot {
+  @apply bg-surface-tertiary !important;
+}
+.rbc-time-slot {
+  @apply border-t border-border !important;
+}
+.rbc-time-gutter,
+.rbc-time-header-gutter {
+  @apply bg-surface-tertiary text-text-secondary !important;
+}
+
+/* Custom styles for react-datepicker */
+.react-datepicker-wrapper {
+  @apply block w-full;
+}
+.react-datepicker__input-container input {
+  @apply input w-full;
+}
+.react-datepicker {
+  @apply bg-surface border border-border rounded-lg shadow-lg font-sans text-sm;
+}
+.react-datepicker__header {
+  @apply bg-surface-secondary rounded-t-lg border-b border-border p-2;
+}
+.react-datepicker__current-month,
+.react-datepicker-time__header,
+.react-datepicker-year-header {
+  @apply text-text-primary font-bold;
+}
+.react-datepicker__day-name,
+.react-datepicker__day,
+.react-datepicker__time-name {
+  @apply w-8 h-8 leading-8 m-1 text-text-secondary rounded-full;
+}
+.react-datepicker__day:hover,
+.react-datepicker__month-text:hover,
+.react-datepicker__quarter-text:hover,
+.react-datepicker__year-text:hover {
+  @apply bg-surface-secondary rounded-full;
+}
+.react-datepicker__day--selected,
+.react-datepicker__day--in-selecting-range,
+.react-datepicker__day--in-range,
+.react-datepicker__month--selected,
+.react-datepicker__month--in-selecting-range,
+.react-datepicker__month--in-range,
+.react-datepicker__quarter--selected,
+.react-datepicker__quarter--in-selecting-range,
+.react-datepicker__quarter--in-range,
+.react-datepicker__year--selected,
+.react-datepicker__year--in-selecting-range,
+.react-datepicker__year--in-range {
+  @apply bg-accent text-white rounded-full;
+}
+.react-datepicker__day--selected:hover,
+.react-datepicker__day--in-selecting-range:hover,
+.react-datepicker__day--in-range:hover,
+.react-datepicker__month--selected:hover,
+.react-datepicker__month--in-selecting-range:hover,
+.react-datepicker__month--in-range:hover,
+.react-datepicker__quarter--selected:hover,
+.react-datepicker__quarter--in-selecting-range:hover,
+.react-datepicker__quarter--in-range:hover,
+.react-datepicker__year--selected:hover,
+.react-datepicker__year--in-selecting-range:hover,
+.react-datepicker__year--in-range:hover {
+  @apply bg-accent/90;
+}
+.react-datepicker__day--keyboard-selected,
+.react-datepicker__month--keyboard-selected,
+.react-datepicker__quarter--keyboard-selected,
+.react-datepicker__year--keyboard-selected {
+  @apply bg-surface-secondary rounded-full;
+}
+.react-datepicker__day--today {
+  @apply font-bold text-accent;
+}
+.react-datepicker__day--disabled {
+  @apply text-text-muted cursor-not-allowed;
+}
+.react-datepicker__navigation {
+  @apply top-3;
+}
+.react-datepicker__navigation-icon::before {
+  @apply border-text-secondary;
+}
+.react-datepicker__time-container {
+  @apply border-l border-border;
+}
+.react-datepicker__time
+  .react-datepicker__time-box
+  ul.react-datepicker__time-list
+  li.react-datepicker__time-list-item--selected {
+  @apply bg-accent text-white;
+}
+.react-datepicker__time
+  .react-datepicker__time-box
+  ul.react-datepicker__time-list
+  li.react-datepicker__time-list-item:hover {
+  @apply bg-surface-secondary;
+}
+.react-datepicker-popper[data-placement^="bottom"]
+  .react-datepicker__triangle::before,
+.react-datepicker-popper[data-placement^="bottom"]
+  .react-datepicker__triangle::after {
+  border-bottom-color: theme("colors.surface.secondary") !important;
+}
+.react-datepicker-popper[data-placement^="top"]
+  .react-datepicker__triangle::before,
+.react-datepicker-popper[data-placement^="top"]
+  .react-datepicker__triangle::after {
+  border-top-color: theme("colors.surface.secondary") !important;
+}
+
+/* Custom scrollbar for calendar */
+.rbc-time-content::-webkit-scrollbar,
+.rbc-agenda-view::-webkit-scrollbar {
+  width: 8px;
+  background: #181c23;
+}
+.rbc-time-content::-webkit-scrollbar-thumb,
+.rbc-agenda-view::-webkit-scrollbar-thumb {
+  background: #23272e;
+  border-radius: 4px;
+}
+
+/* Datepicker text contrast */
+.react-datepicker,
+.react-datepicker__header,
+.react-datepicker__day,
+.react-datepicker__day-name,
+.react-datepicker__current-month,
+.react-datepicker__time-name,
+.react-datepicker__year-header {
+  @apply text-text-primary !important;
+}
+.react-datepicker__input-container input {
+  @apply input w-full text-text-primary !important;
+}
+.react-datepicker__day--disabled {
+  @apply text-text-muted !important;
+}
+
+/* Modal action buttons larger */
+.event-modal-actions .btn {
+  @apply btn-lg text-base font-semibold px-6 py-3 rounded-lg;
+}
+
+/* Minimal, correct calendar backgrounds - no holes, no patches */
+.rbc-calendar,
+.rbc-month-view,
+.rbc-time-view,
+.rbc-agenda-view {
+  background: #111 !important;
+}
+.rbc-date-cell,
+.rbc-day-bg,
+.rbc-row-bg,
+.rbc-row-segment {
+  background: #23243a !important;
+  color: #fff !important;
+  border: 1px solid #232323 !important;
+  border-radius: 0 !important;
+  font-weight: 400 !important;
+}
+.rbc-off-range-bg,
+.rbc-off-range {
+  background: #111 !important;
+  color: #888 !important;
+  border: 1px solid #232323 !important;
+}
+.rbc-today {
+  background: #2d3a5a !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+}

@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "@restart/hooks": "^0.6.2",
+    "axios": "^1.10.0",
+    "cors": "^2.8.5",
+    "date-fns": "^4.1.0",
+    "lottie-react": "^2.4.1",
+    "mongoose": "^8.16.3",
+    "react-big-calendar": "^1.19.4",
+    "react-datepicker": "^8.4.0",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1"
+  }
+}
